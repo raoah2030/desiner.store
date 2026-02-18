@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>كبسة البيت</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Tahoma, sans-serif;
+    background: #f5f1e8;
+    text-align: center;
+}
+
+/* ===== شريط الترحيب ===== */
+.marquee-container {
+    width: 100%;
+    background: #f5f1e8;
+    color: black;
+    overflow: hidden;
+    box-sizing: border-box;
+    padding: 10px 0;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.marquee {
+    display: inline-block;
+    white-space: nowrap;
+    animation: marqueeAnim 50s linear infinite;
+}
+
+.marquee span {
+    display: inline-block;
+    padding-left: 50px;
+}
+
+@keyframes marqueeAnim {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+/* ===== البنر الاحترافي ===== */
+.hero {
+    background: url('kabsa-banner.jpg') center/cover no-repeat;
+    height: 85vh;
+    position: relative;
+    display: flex;
+    align-items: flex-end; /* النص في أسفل البنر */
+    justify-content: center;
+    color: white;
+    overflow: hidden;
+    padding-bottom: 30px;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: none; /* لا تعتيم */
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    animation: fadeIn 1.2s ease-in-out;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+}
+
+.hero h1 {
+    font-size: 40px;
+    margin: 0 0 10px 0;
+}
+
+.offer {
+    color: gold;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.order-btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 12px 25px;
+    background: #2e7d32;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.order-btn:hover { background: #1b5e20; }
+
+/* ===== المنيو ===== */
+#menu {
+    padding: 30px 15px;
+}
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+    gap: 20px;
+    justify-items: center;
+}
+
+.card {
+    background: white;
+    padding: 15px;
+    margin: 15px auto;
+    width: 260px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.card select {
+    padding: 5px;
+    margin: 10px 0;
+    width: 60px;
+}
+
+.card button {
+    background: #2e7d32;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.card button:hover { background: #1b5e20; }
+
+/* ===== سلة الطلب ===== */
+.cart {
+    background: #fff8ec;
+    padding: 25px;
+    margin: 20px;
+    border-radius: 12px;
+}
+
+.cart ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.cart li {
+    margin-bottom: 10px;
+    text-align: right;
+}
+
+.checkout {
+    background: #25D366;
+    margin-top: 15px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+}
+
+.checkout:hover { background: #1ebe57; }
+
+.whatsapp-float {
+    position: fixed;
+    bottom: 15px;
+    left: 15px;
+    background: #25D366;
+    color: white;
+    padding: 16px;
+    border-radius: 50%;
+    text-decoration: none;
+    font-size: 22px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+    transition: 0.3s;
+}
+
+.whatsapp-float:hover { transform: scale(1.1); }
+
+/* ===== Responsive ===== */
+@media(max-width:768px){
+    .hero h1{ font-size: 30px; }
+    .card{ width: 90%; }
+    .marquee-container {
+        order: -1; /* يظهر قبل البنر */
+    }
+}
+
+@media(max-width:480px){
+    .hero h1{ font-size: 24px; }
+    .order-btn{ padding: 10px 18px; font-size: 14px; }
+    .checkout{ font-size: 14px; padding: 10px 15px; }
+    .card select{ width: 50px; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- شريط الترحيب -->
+<div class="marquee-container">
+    <div class="marquee">
+        <span>أهلاً بكم  <strong>في كبسة البيت</strong> ! استمتعوا بأطيب كبسة سعودية مع خصم 10% على أول طلب لكم!</span>
+        <span>أهلاً بكم  <strong>في كبسة البيت</strong> أ! استمتعوا بأطيب كبسة سعودية مع خصم 10% على أول طلب لكم!</span>
+     
+    </div>
+</div>
+
+<header class="hero">
+    <div class="hero-content">
+        <h1>اهــــلا بـــكـــم</h1>
+        <p class="offer">الطعم الأصيل يوصل لبيتك </p>
+        <a href="#menu" class="order-btn">اطلب الآن</a>
+    </div>
+</header>
+
+<section id="menu">
+<h2>المنيو</h2>
+<div class="card-container">
+
+<div class="card">
+<h3>كبسة لحم</h3>
+<p>64 ريال</p>
+<select id="lahm"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select>
+<br>
+<button onclick="addToCart('كبسة نفر لحم',64,'lahm')">أضف للسلة</button>
+</div>
+
+<div class="card">
+<h3>كبسة دجاج</h3>
+<p>43 ريال</p>
+<select id="dajaj"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select>
+<br>
+<button onclick="addToCart('كبسة حبة دجاج',43,'dajaj')">أضف للسلة</button>
+</div>
+
+<div class="card">
+<h3>لبن</h3>
+<p>5 ريال</p>
+<select id="laban"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select>
+<br>
+<button onclick="addToCart('لبن',5,'laban')">أضف للسلة</button>
+</div>
+
+<div class="card">
+<h3>مشروبات</h3>
+<p>3.5 ريال</p>
+<select id="drinks"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select>
+<br>
+<button onclick="addToCart('مشروبات',3.5,'drinks')">أضف للسلة</button>
+</div>
+
+<div class="card">
+<h3>ماء</h3>
+<p>1 ريال</p>
+<select id="water"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select>
+<br>
+<button onclick="addToCart('ماء',1,'water')">أضف للسلة</button>
+</div>
+
+<div class="card">
+<h3>سلطة بالزبادي</h3>
+<p>5 ريال</p>
+<select id="salad"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select>
+<br>
+<button onclick="addToCart('خيار بالزبادي',5,'salad')">أضف للسلة</button>
+</div>
+
+</div>
+</section>
+
+<section class="cart" id="cart">
+<h2>سلة الطلب</h2>
+<ul id="cart-items"></ul>
+<p id="total">المجموع: 0 ريال</p>
+<button onclick="clearCart()">تفريغ السلة</button>
+<button class="checkout" onclick="checkout()">إرسال الطلب واتساب</button>
+</section>
+
+<a class="whatsapp-float" href="https://wa.me/966551658569" target="_blank">💬</a>
+
+<script>
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+let total = 0;
+
+function saveCart(){ localStorage.setItem("cart", JSON.stringify(cart)); }
+
+function addToCart(name, price, id){
+    let qty = parseFloat(document.getElementById(id).value);
+    if(isNaN(qty) || qty <= 0){ alert("أدخل كمية صحيحة"); return; }
+    let existing = cart.find(item => item.name === name);
+    if(existing){ existing.qty += qty; }
+    else{ cart.push({name:name, price:price, qty:qty}); }
+    saveCart(); updateCart();
+}
+
+function removeItem(index){ cart.splice(index,1); saveCart(); updateCart(); }
+function clearCart(){ cart=[]; saveCart(); updateCart(); }
+
+function updateCart(){
+    let cartList = document.getElementById("cart-items");
+    cartList.innerHTML = ""; total = 0;
+    cart.forEach((item,index)=>{
+        let itemTotal = item.price * item.qty; total += itemTotal;
+        cartList.innerHTML += `<li>${item.name} × ${item.qty} = ${itemTotal.toFixed(2)} ريال
+<button onclick="removeItem(${index})" style="background:red;color:white;border:none;padding:4px 8px;border-radius:5px;margin-right:10px;cursor:pointer;">حذف</button>
+</li>`;
+    });
+    document.getElementById("total").innerText = "المجموع: " + total.toFixed(2) + " ريال";
+}
+
+function checkout(){
+    if(cart.length === 0){ alert("السلة فارغة"); return; }
+    let message = "طلب جديد من كبسة البيت:\n\n";
+    cart.forEach(item=>{ message += `${item.name} × ${item.qty} = ${(item.price*item.qty).toFixed(2)} ريال\n`; });
+    message += `\nالمجموع: ${total.toFixed(2)} ريال`;
+    let phone="966551658569";
+    let url="https://wa.me/"+phone+"?text="+encodeURIComponent(message);
+    window.open(url,"_blank");
+}
+
+updateCart();
+</script>
+
+</body>
+</html>

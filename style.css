@@ -1,0 +1,168 @@
+body {
+    margin: 0;
+    font-family: Tahoma;
+    background: #f5f1e8;
+    text-align: center;
+}/* ===== شريط النص المتحرك ===== */
+.marquee-container {
+    width: 100%;
+    background: #2e7d32; /* خلفية خضراء مشابهة لزر الطلب */
+    color: white;
+    overflow: hidden;
+    white-space: nowrap;
+    box-sizing: border-box;
+    padding: 10px 0;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.marquee {
+    display: inline-block;
+    padding-left: 100%;
+    animation: marqueeAnim 15s linear infinite;
+}
+
+@keyframes marqueeAnim {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-100%); }
+}
+
+/* استجابة الجوال */
+@media(max-width:768px){
+    .marquee-container {
+        font-size: 16px;
+        padding: 8px 0;
+    }
+}
+
+
+/* ===== البنر الاحترافي ===== */
+.hero {
+    background: url('kabsa-banner.jpg') center/cover no-repeat;
+    height: 60vh;
+    position: relative;
+    display: flex;
+    align-items: flex-end; /* النص في أسفل البنر */
+    justify-content: center;
+    color: white;
+    overflow: hidden;
+    padding-bottom: 20px; /* مسافة من الأسفل */
+}
+
+/* إزالة أي تعتيم نهائياً */
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: none; /* شفاف تماما */
+    z-index: 1;
+}
+
+/* محتوى البنر */
+.hero-content {
+    position: relative;
+    z-index: 2;
+    animation: fadeIn 1.2s ease-in-out;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 45px;
+    margin: 0;
+    text-shadow: none; /* إزالة أي ظل */
+}
+
+.offer {
+    color: gold;
+    font-weight: bold;
+    margin-top: 10px;
+    text-shadow: none; /* إزالة أي ظل */
+}
+
+/* حركة دخول ناعمة */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.order-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 25px;
+    background: #2e7d32;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.order-btn:hover {
+    background: #1b5e20;
+    transform: scale(1.05);
+}
+
+/* ===== المنيو ===== */
+#menu {
+    padding: 40px 20px;
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    margin: 20px auto;
+    width: 280px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.card select {
+    padding: 5px;
+    margin: 10px 0;
+}
+
+.card button {
+    background: #2e7d32;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.card button:hover {
+    background: #1b5e20;
+    transform: scale(1.05);
+}
+
+/* ===== السلة ===== */
+.cart {
+    background: #fff8ec;
+    padding: 30px;
+}
+
+.checkout {
+    background: #25D366;
+    margin-top: 15px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.checkout:hover {
+    background: #1ebe57;
+    transform: scale(1.05);
+}
+
+/* ===== استجابة الجوال ===== */
+@media(max-width:768px){
+    .hero h1{
+        font-size: 30px;
+    }
+    .card{
+        width: 90%;
+    }
+}
